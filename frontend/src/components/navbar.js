@@ -26,8 +26,8 @@ export default function Navbar() {
         <Nav.Link href="/">Start</Nav.Link>
         <Nav.Link href="/home">Home</Nav.Link>
         <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
-        <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
-        <Nav.Link href="/routePatterns">MBTA RoutePatterns</Nav.Link>
+        <Nav.Link href="/mbtaAlerts">Next Train</Nav.Link>
+        <Nav.Link href="/routePatterns">Stations</Nav.Link>
       </Nav>
     </Container>
   </ReactNavbar>
