@@ -13,11 +13,7 @@ router.post('/editUser', async (req, res) =>
     if (error) return res.status(400).send({ message: error.errors[0].message });
 
     // store new user information
-<<<<<<< HEAD
-    const {userId, username, email, password, favline} = req.body
-=======
     const {userId, username, email, password, favline,favroute} = req.body
->>>>>>> 44b3de4b6889a0b194decdccdb918fa036d42dc0
 
     // check if username is available
     const user = await newUserModel.findOne({ username: username })
@@ -35,22 +31,14 @@ router.post('/editUser', async (req, res) =>
         username : username, 
         email : email, 
         password : hashPassword,
-<<<<<<< HEAD
-        favline : favline,
-=======
         favline: favline,
         favroute : favroute
->>>>>>> 44b3de4b6889a0b194decdccdb918fa036d42dc0
     } ,function (err, user) {
     if (err){
         console.log(err);
     } else {
         // create and send new access token to local storage
-<<<<<<< HEAD
-        const accessToken = generateAccessToken(user._id, email, username, hashPassword, favline)  
-=======
         const accessToken = generateAccessToken(user._id, email, username, hashPassword, favline,favroute)  
->>>>>>> 44b3de4b6889a0b194decdccdb918fa036d42dc0
         res.header('Authorization', accessToken).send({ accessToken: accessToken })
     }
     });
