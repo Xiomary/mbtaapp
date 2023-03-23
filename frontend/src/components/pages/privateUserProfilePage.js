@@ -4,6 +4,9 @@ import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 import getUserInfo from "../../utilities/decodeJwt";
 
+
+
+
 const PrivateUserProfile = () => {
   const [show, setShow] = useState(false);
   const [user, setUser] = useState({})
@@ -16,6 +19,8 @@ const PrivateUserProfile = () => {
     localStorage.clear();
     navigate("/");
   };
+ 
+
 
   useEffect(() => {
     setUser(getUserInfo())
@@ -28,16 +33,16 @@ const PrivateUserProfile = () => {
       <div className="col-md-12 text-center">
         <h1>{user && user.username}</h1>
         <div className="d-flex flex-column align-items-center">
-          <Button style={{ marginBottom: "10px", boxShadow: "0px 0px 5px 2px rgba(0, 0, 0, 0.25)", transition: "box-shadow 0.3s ease-in-out" }} onClick={handleShow}>
+          <Button style={{ marginBottom: "10px"}} onClick={handleShow}>
             Log Out
           </Button>
-          <Button style={{ marginBottom: "10px", boxShadow: "0px 0px 5px 2px rgba(0, 0, 0, 0.25)", transition: "box-shadow 0.3s ease-in-out" }} onClick={handleShow}>
+          <Button style={{ marginBottom: "10px" }} onClick={handleShow}>
             Edit Password
           </Button>
-          <Button style={{ marginBottom: "10px", boxShadow: "0px 0px 5px 2px rgba(0, 0, 0, 0.25)", transition: "box-shadow 0.3s ease-in-out" }} onClick={handleShow}>
+          <Button style={{ marginBottom: "10px"}} onClick={handleShow}>
             View History
           </Button>
-          <Button style={{ marginBottom: "10px", boxShadow: "0px 0px 5px 2px rgba(0, 0, 0, 0.25)", transition: "box-shadow 0.3s ease-in-out" }} onClick={handleShow}>
+          <Button style={{ marginBottom: "10px" }} onClick={handleShow}>
             Change Password 
           </Button>
         </div>

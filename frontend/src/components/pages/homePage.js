@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import getUserInfo from '../../utilities/decodeJwt'
+
+
+<link rel="stylesheet" type="text/css" href="homePage.css"></link>
 const HomePage = () => {
     const [user, setUser] = useState({})
     const navigate = useNavigate()
@@ -41,8 +44,7 @@ const HomePage = () => {
                     Your favorite line is
                     <span className='favline'> {favline}</span>
                 </h3>
-              
-               
+
             </div>
             <button onClick={(e) => handleClick(e)}>
                 Log Out
