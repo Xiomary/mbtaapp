@@ -22,6 +22,11 @@ const newUserSchema = new mongoose.Schema(
       type: String,
       label: "favline",
     },
+    favline:{
+      type: String,
+      required: true,
+      label: "favline",
+    },
     date: {
       type: Date,
       default: Date.now,

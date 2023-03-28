@@ -10,7 +10,6 @@
             "name": "backend server: npm start",
             "request": "launch",
             "type": "node-terminal"
-        },
-
+        }
     ]
 }
