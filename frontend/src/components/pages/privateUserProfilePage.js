@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import getUserInfo from "../../utilities/decodeJwt";
 
-
-
-
 const PrivateUserProfile = () => {
   const [show, setShow] = useState(false);
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({});
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
@@ -19,31 +20,32 @@ const PrivateUserProfile = () => {
     localStorage.clear();
     navigate("/");
   };
- 
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // handle password change logic here
+    console.log("Old password:", oldPassword);
+    console.log("New password:", newPassword);
+    console.log("Confirm password:", confirmPassword);
+  };
 
   useEffect(() => {
-    setUser(getUserInfo())
+    setUser(getUserInfo());
   }, []);
 
-  if (!user) return (<div><h4>Log in to view this page.</h4></div>)
+  if (!user) return <div><h4>Log in to view this page.</h4></div>;
 
   return (
     <div className="container">
       <div className="col-md-12 text-center">
         <h1>{user && user.username}</h1>
         <div className="d-flex flex-column align-items-center">
-          <Button style={{ marginBottom: "10px"}} onClick={handleShow}>
+          <Button style={{ marginBottom: "10px" }} onClick={handleShow}>
             Log Out
           </Button>
+  
           <Button style={{ marginBottom: "10px" }} onClick={handleShow}>
-            Edit Password
-          </Button>
-          <Button style={{ marginBottom: "10px"}} onClick={handleShow}>
-            View History
-          </Button>
-          <Button style={{ marginBottom: "10px" }} onClick={handleShow}>
-            Change Password 
+            Change Password
           </Button>
         </div>
         <Modal
@@ -53,15 +55,45 @@ const PrivateUserProfile = () => {
           keyboard={false}
         >
           <Modal.Header closeButton>
-            <Modal.Title>Log Out</Modal.Title>
+            <Modal.Title>Change Password</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Are you sure you want to Log Out?</Modal.Body>
+          <Modal.Body>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group controlId="oldPassword">
+                <Form.Label>Old Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  value={oldPassword}
+                  onChange={(e) => setOldPassword(e.target.value)}
+                />
+              </Form.Group>
+
+              <Form.Group controlId="newPassword">
+                <Form.Label>New Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                />
+              </Form.Group>
+
+              <Form.Group controlId="confirmPassword">
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+              </Form.Group>
+
+              <Button variant="primary" type="submit">
+                Change Password
+              </Button>
+            </Form>
+          </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close
-            </Button>
-            <Button variant="primary" onClick={handleLogout}>
-              Yes
             </Button>
           </Modal.Footer>
         </Modal>
