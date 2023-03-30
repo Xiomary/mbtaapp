@@ -1,10 +1,14 @@
-import React, {} from 'react'
-import Card from 'react-bootstrap/Card';
+import React, { useState } from "react";
+import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+
+const PRIMARY_COLOR = "#cc5c99";
+const SECONDARY_COLOR = "#0c0c1f";
 
 const Landingpage = () => {
     
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Card style={{ width: '30rem' }} className="mx-2 my-2">
         <Card.Body>
           <Card.Title>Professor Brockenbrough's User Skeleton App</Card.Title>
@@ -15,7 +19,6 @@ const Landingpage = () => {
           <Card.Link href="/login">Login</Card.Link>
         </Card.Body>
       </Card>
-    </div>
     )
 }
 

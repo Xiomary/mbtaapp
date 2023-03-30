@@ -19,6 +19,8 @@ import TrainTrackerPage from "./components/pages/trainTrackerPage";
 import RoutePatterns from "./components/pages/routePatterns";
 
 
+import AboutUs from "./components/pages/aboutUs";
+
 import { createContext, useState, useEffect } from "react";
 
 import getUserInfo from "./utilities/decodeJwt";
@@ -46,6 +48,7 @@ const App = () => {
           <Route path="/trainTrackerPage" element={<TrainTrackerPage />} />
           <Route exact path="/mbtaAlerts" element={<MbtaAlerts />} />
           <Route exact path="/routePatterns" element={<RoutePatterns />} />
+          <Route exact path="/aboutUs" element={<AboutUs />} />
         </Routes>
       </UserContext.Provider>
     </>

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import getUserInfo from '../../utilities/decodeJwt'
-import './homePage.css'
-<img src="/home.png" alt="home" />
-
 const HomePage = () => {
     const [user, setUser] = useState({})
     const navigate = useNavigate()
@@ -12,21 +9,18 @@ const HomePage = () => {
         localStorage.removeItem('accessToken')
         return navigate('/')
     }
-
+ 
     useEffect(() => {
         setUser(getUserInfo())
     }, [])
-
+ 
 
     if (!user) return (
         <div><h4>Log in to view this page.</h4></div>)
     const { id, email, username, password, favline,favroute } = user
     return (
         <>
-        <div className='my-container'>
-            <h2>
-            <img src="/home.png" alt="home"  className = " center-image" />
-            </h2>
+            <div>
                 <h3>
                     Welcome
                     <span className='username'> @{username}</span>
@@ -47,8 +41,7 @@ const HomePage = () => {
                     Your favorite line is
                     <span className='favline'> {favline}</span>
                 </h3>
-              
-               
+             
             </div>
             <button onClick={(e) => handleClick(e)}>
                 Log Out
@@ -56,5 +49,5 @@ const HomePage = () => {
         </>
     )
 }
-
+ 
 export default HomePage

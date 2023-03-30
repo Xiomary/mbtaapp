@@ -3,6 +3,7 @@ import getUserInfo from '../utilities/decodeJwt';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import ReactNavbar from 'react-bootstrap/Navbar';
+import './pages/appNavBar.css';
 
 
 // Here, we display our Navbar
@@ -11,7 +12,6 @@ export default function Navbar() {
   // Warning disabled: 
   // eslint-disable-next-line
   const [user, setUser] = useState({})
-
   useEffect(() => {
   setUser(getUserInfo())
   }, [])
@@ -25,9 +25,6 @@ export default function Navbar() {
       <Nav className="me-auto">
         <Nav.Link href="/">Start</Nav.Link>
         <Nav.Link href="/home">Home</Nav.Link>
-        <Nav.Link href="/routePatterns">Stations</Nav.Link>
-        <Nav.Link href="/mbtaAlerts">Next Train</Nav.Link>
-        <Nav.Link href="/aboutUs">aboutUs</Nav.Link>
         <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
       </Nav>
     </Container>
