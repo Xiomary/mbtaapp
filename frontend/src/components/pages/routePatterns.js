@@ -32,7 +32,7 @@ function Route() {
         
       >
         <Card.Body>
-        <Card.Title>RoutePatterns</Card.Title>
+        <Card.Title>Stations</Card.Title>
         <Card.Text>{route.attributes.name}{route.attributes.effect}</Card.Text>
         </Card.Body>
         

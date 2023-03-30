@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 const Landingpage = () => {
     
     return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Card style={{ width: '30rem' }} className="mx-2 my-2">
         <Card.Body>
           <Card.Title>Professor Brockenbrough's User Skeleton App</Card.Title>
@@ -14,6 +15,7 @@ const Landingpage = () => {
           <Card.Link href="/login">Login</Card.Link>
         </Card.Body>
       </Card>
+    </div>
     )
 }
 
