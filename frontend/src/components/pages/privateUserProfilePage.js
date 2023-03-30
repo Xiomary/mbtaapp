@@ -8,9 +8,15 @@ import getUserInfo from "../../utilities/decodeJwt";
 const PrivateUserProfile = () => {
   const [show, setShow] = useState(false);
   const [user, setUser] = useState({});
+  
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const[oldEmail,setOldEmail] = useState("");
+  const[newEmail,setNewEmail] = useState("");
+  const[comfirmEmail,setComfirmedEmail] = useState("");
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const navigate = useNavigate();

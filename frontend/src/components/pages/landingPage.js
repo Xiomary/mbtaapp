@@ -1,20 +1,72 @@
-import React, {} from 'react'
-import Card from 'react-bootstrap/Card';
+import React, { useState } from "react";
+import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+
+const PRIMARY_COLOR = "#cc5c99";
+const SECONDARY_COLOR = "#0c0c1f";
 
 const Landingpage = () => {
-    
-    return (
-        <Card style={{ width: '30rem' }} className="mx-2 my-2">
-        <Card.Body>
-          <Card.Title>Professor Brockenbrough's User Skeleton App</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">A starting point for an application.</Card.Subtitle>
-          <Card.Text>
-          </Card.Text>
-          <Card.Link href="/signup">Sign Up</Card.Link>
-          <Card.Link href="/login">Login</Card.Link>
-        </Card.Body>
-      </Card>
-    )
-}
+  const [light, setLight] = useState(false);
+  const [bgColor, setBgColor] = useState(SECONDARY_COLOR);
+  const [bgText, setBgText] = useState("Light Mode");
 
-export default Landingpage
+  let labelStyling = {
+    color: PRIMARY_COLOR,
+    fontWeight: "bold",
+    textDecoration: "none",
+  };
+  let backgroundStyling = { background: bgColor };
+  let buttonStyling = {
+    background: PRIMARY_COLOR,
+    borderStyle: "none",
+    color: bgColor,
+  };
+
+  const handleLightMode = () => {
+    setLight(!light);
+    if (light) {
+      setBgColor(SECONDARY_COLOR);
+      setBgText("Light mode");
+    } else {
+      setBgColor("white");
+      setBgText("Dark mode");
+    }
+  };
+
+  return (
+    <div style={{display: 'flex',justifyContent:'center',alignItems:'center'}}>
+
+    <Card
+      style={{ width: "30rem" }}
+      className="mx-2 my-2"
+      bg={bgColor}
+      text={bgColor === SECONDARY_COLOR ? "light" : "dark"}
+    >
+      <Card.Body>
+        <Card.Title style={labelStyling}>
+          Professor Brockenbrough's User Skeleton App
+        </Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">
+          A starting point for an application.
+        </Card.Subtitle>
+        <Card.Text></Card.Text>
+        <Link to="/signup" style={labelStyling}>
+          <Button variant="primary" style={buttonStyling} className="mr-2">
+            Sign Up
+          </Button>
+        </Link>
+        <Link to="/login" style={labelStyling}>
+          <Button variant="primary" style={buttonStyling} className="mr-2">
+            Log In
+          </Button>
+        </Link>
+       
+      </Card.Body>
+  
+    </Card>
+    </div>
+  );
+};
+
+export default Landingpage;

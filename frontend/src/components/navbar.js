@@ -6,17 +6,12 @@ import ReactNavbar from 'react-bootstrap/Navbar';
 import './pages/appNavBar.css';
 
 
-
-
 // Here, we display our Navbar
 export default function Navbar() {
   // We are pulling in the user's info but not using it for now.
   // Warning disabled: 
   // eslint-disable-next-line
   const [user, setUser] = useState({})
-
-  
-
   useEffect(() => {
   setUser(getUserInfo())
   }, [])
@@ -37,8 +32,6 @@ export default function Navbar() {
              <Nav.Link href="/aboutUs">AboutUs</Nav.Link>
    
         <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
-       
-   
       </Nav>
     </Container>
   </ReactNavbar>
