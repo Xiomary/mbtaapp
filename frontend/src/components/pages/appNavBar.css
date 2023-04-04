@@ -19,7 +19,7 @@
   .nav-link:hover::before {
     visibility: visible;
     transform: scaleX(1);
-    background-color: #007bff;
+    background-color: #cc5c99; /* new pink color */
     box-shadow: 0 2px 4px rgba(0, 123, 255, 0.4);
   }
   

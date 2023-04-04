@@ -1,9 +1,13 @@
-.style{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
-.button{
-    font-size: 25px;  
-margin: auto;  
+
+.button-container button:first-child {
+  margin-right: 10px;
 }
+
+

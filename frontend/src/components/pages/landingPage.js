@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import "./landingpage.css";
+
+
 
 const PRIMARY_COLOR = "#cc5c99";
 const SECONDARY_COLOR = "#0c0c1f";
@@ -23,16 +26,7 @@ const Landingpage = () => {
     color: bgColor,
   };
 
-  const handleLightMode = () => {
-    setLight(!light);
-    if (light) {
-      setBgColor(SECONDARY_COLOR);
-      setBgText("Light mode");
-    } else {
-      setBgColor("white");
-      setBgText("Dark mode");
-    }
-  };
+ 
 
   return (
     <div style={{display: 'flex',justifyContent:'center',alignItems:'center'}}>
@@ -51,17 +45,18 @@ const Landingpage = () => {
           A starting point for an application.
         </Card.Subtitle>
         <Card.Text></Card.Text>
+        <div className="button-container">
         <Link to="/signup" style={labelStyling}>
           <Button variant="primary" style={buttonStyling} className="mr-2">
             Sign Up
           </Button>
         </Link>
         <Link to="/login" style={labelStyling}>
-          <Button variant="primary" style={buttonStyling} className="mr-2">
+          <Button variant="primary" style={buttonStyling} className="mr-3">
             Log In
           </Button>
         </Link>
-       
+        </div>
       </Card.Body>
   
     </Card>

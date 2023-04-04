@@ -46,7 +46,7 @@ const PrivateUserProfile = () => {
       <div className="col-md-12 text-center">
         <h1>{user && user.username}</h1>
         <div className="d-flex flex-column align-items-center">
-          <Button style={{ marginBottom: "10px" }} onClick={handleShow}>
+          <Button style={{ marginBottom: "10px" }} onClick={ handleLogout}>
             Log Out
           </Button>
   
