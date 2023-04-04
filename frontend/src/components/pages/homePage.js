@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import getUserInfo from '../../utilities/decodeJwt'
-import './home.css'
-<img src="/Train.png" alt="Train" />
- 
 const HomePage = () => {
     const [user, setUser] = useState({})
     const navigate = useNavigate()
@@ -23,9 +20,7 @@ const HomePage = () => {
     const { id, email, username, password, favline,favroute } = user
     return (
         <>
-        <div className='my-container'>
-        <img src="/Train.png" alt="Train" className="center-image" />
-
+            <div>
                 <h3>
                     Welcome
                     <span className='username'> @{username}</span>
