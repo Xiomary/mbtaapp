@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
- 
+
 function Alerts() {
   const [alerts, setAlerts] = useState([]);
- 
+
   useEffect(() => {
     async function fetchData() {
       const result = await axios(
@@ -15,34 +15,25 @@ function Alerts() {
     fetchData();
   }, []);
 
- 
   return (
     <div>
       {alerts.map(alert => (
         <Card
-        body
-        outline
-        color="success"
-        className="mx-1 my-2"
-        style={{ width: "30rem" }}
-      >
-        <Card.Body>
-        <Card.Title>Alert</Card.Title>
-        <Card.Text>{alert.attributes.header}{alert.attributes.description}</Card.Text>
-        </Card.Body>
-      </Card>
-      ))}
- 
-      {alerts.map(alert => (
-        <div key={alert.id}>
-          <h3>{alert.attributes.header}</h3>
-          <p>{alert.attributes.description}</p>
-        </div>
+          body
+          bg="info"
+          text="dark"
+          border="warning"
+          className="mx-1 my-2"
+          style={{ width: "30rem" }}
+        >
+          <Card.Body>
+            <Card.Title>Alert</Card.Title>
+            <Card.Text>{alert.attributes.header} - {alert.attributes.description}</Card.Text>
+          </Card.Body>
+        </Card>
       ))}
     </div>
   );
 }
- 
+
 export default Alerts;
- 
- 

@@ -20,7 +20,7 @@ function Route() {
  
   return (
 
-    <div>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
       {route.map(route => (
         <Card
         body
@@ -34,7 +34,7 @@ function Route() {
         
       >
         <Card.Body>
-        <Card.Title>RoutePatterns</Card.Title>
+        <Card.Title>Stations</Card.Title>
         <Card.Text>{route.attributes.name}{route.attributes.effect}</Card.Text>
         </Card.Body>
         
