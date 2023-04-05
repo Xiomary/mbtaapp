@@ -51,7 +51,7 @@ const Landingpage = () => {
             Sign Up
           </Button>
         </Link>
-        <Link to="/login" style={labelStyling}>
+        <Link to="/loginPage" style={labelStyling}>
           <Button variant="primary" style={buttonStyling} className="mr-3">
             Log In
           </Button>

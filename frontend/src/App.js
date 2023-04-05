@@ -7,7 +7,7 @@ import Navbar from "./components/navbar";
 import LandingPage from "./components/pages/landingPage";
 
 import HomePage from "./components/pages/homePage";
-import Login from "./components/pages/loginPage";
+import LoginPage from "./components/pages/loginPage";
 
 import Signup from "./components/pages/registerPage";
 import PrivateUserProfile from "./components/pages/privateUserProfilePage";
@@ -19,7 +19,7 @@ import TrainTrackerPage from "./components/pages/trainTrackerPage";
 import RoutePatterns from "./components/pages/routePatterns";
 
 
-import AboutUs from "./components/pages/aboutUs";
+
 
 import { createContext, useState, useEffect } from "react";
 
@@ -42,13 +42,12 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
           <Route exact path="/homePage" element={<HomePage />} />
-          <Route exact path="/loginPage" element={<Login />} />
+          <Route exact path="/loginPage" element={<LoginPage />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route path="/privateUserProfile" element={<PrivateUserProfile />} />
           <Route path="/trainTrackerPage" element={<TrainTrackerPage />} />
           <Route exact path="/mbtaAlerts" element={<MbtaAlerts />} />
           <Route exact path="/routePatterns" element={<RoutePatterns />} />
-          <Route exact path="/aboutUs" element={<AboutUs />} />
         </Routes>
       </UserContext.Provider>
     </>

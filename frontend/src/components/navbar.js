@@ -20,20 +20,15 @@ export default function Navbar() {
   // it seems.
   return (
     <ReactNavbar bg="dark" variant="dark">
-    <Container>
-      <Nav className="me-auto">
-        <Nav.Link href="/">Start</Nav.Link>
-        <Nav.Link href="/home">Home</Nav.Link>
-        <Nav.Link href="/routePatterns">Stations</Nav.Link>
-        {user && (
-            <Nav.Link href="/mbtaAlerts">Next Train</Nav.Link>
-          )}
-             <Nav.Link href="/aboutUs">AboutUs</Nav.Link>
-   
-        <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
-      </Nav>
-    </Container>
-  </ReactNavbar>
-
+      <Container>
+        <Nav className="me-auto">
+          <Nav.Link href="/">Start</Nav.Link>
+          <Nav.Link href="/homePage">Home</Nav.Link>
+          <Nav.Link href="/routePatterns">Stations</Nav.Link>
+          <Nav.Link href="/mbtaAlerts">Next Train</Nav.Link>
+          <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
+        </Nav>
+      </Container>
+    </ReactNavbar>
   );
 }
