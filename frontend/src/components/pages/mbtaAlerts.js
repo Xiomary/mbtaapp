@@ -28,7 +28,7 @@ function Alerts() {
           style={{ width: "30rem", margin: "auto" }}
         >
           <Card.Body>
-            <Card.Title>Alert</Card.Title>
+            <Card.Title>Trains</Card.Title>
             <Card.Text>{alert.attributes.header} - {alert.attributes.description}</Card.Text>
           </Card.Body>
         </Card>

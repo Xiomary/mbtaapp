@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import './routePatterns.css';
 
 function RoutePatterns() {
@@ -37,12 +38,14 @@ function RoutePatterns() {
       <Row className="justify-content-center">
         {filteredRoutePatterns.map(routePattern => (
           <Col xs={12} md={6} lg={4} key={routePattern.id} className="my-3">
-            <Card bg="white" border="warning" className="h-100">
-              <Card.Body>
-                <Card.Title>{routePattern.attributes.name}</Card.Title>
-                <Card.Text>{routePattern.attributes.description}</Card.Text>
-              </Card.Body>
-            </Card>
+            <Link to="/mbtaAlerts" className="custom-card-link">
+              <Card bg="white" border="warning" className="custom-card">
+                <Card.Body>
+                  <Card.Title className="custom-card-title">{routePattern.attributes.name}</Card.Title>
+                  <Card.Text>{routePattern.attributes.description}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Link>
           </Col>
         ))}
       </Row>

@@ -39,10 +39,10 @@ const Landingpage = () => {
     >
       <Card.Body>
         <Card.Title style={labelStyling}>
-          Professor Brockenbrough's User Skeleton App
+          Transit Now: 
         </Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
-          A starting point for an application.
+        Your All-In-One MBTA Guide
         </Card.Subtitle>
         <Card.Text></Card.Text>
         <div className="button-container">
