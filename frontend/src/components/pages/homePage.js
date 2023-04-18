@@ -25,15 +25,15 @@ const HomePage = () => {
 
   return (
     <>
-      <img src="/Train.png" alt="Train" className="center-image" />
+      <img src="/trainhome.png" alt="Train" className="center-image" />
       <div className="my-container">
         <h3>
           Welcome
           <span className="username"> @{username}</span>
         </h3>
         <h3>
-          Your userId in mongo db is
-          <span className="userId"> {id}</span>
+          {/* Your userId in mongo db is
+          <span className="userId"> {id}</span> */}
         </h3>
         <h3>
           Your registered email is
@@ -41,13 +41,13 @@ const HomePage = () => {
         </h3>
         <h3>
           Your password is
-          <span className="password"> {password} ( hashed )</span>
+          <span className="password"> ( hashed )</span>
         </h3>
         <h3>
           Your favorite line is
           <span className="favline"> {favline}</span>
         </h3>
-        <button onClick={(e) => handleClick(e)}>Log Out</button>
+        {/*<button onClick={(e) => handleClick(e)}>Log Out</button>*/}
       </div>
     </>
   );

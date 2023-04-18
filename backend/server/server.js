@@ -8,7 +8,6 @@ const getUserByIdRoute = require('./routes/userGetUserById')
 const dbConnection = require('./config/db.config')
 const editUser = require('./routes/userEditUser')
 const deleteUser = require('./routes/userDeleteAll')
-const userDeveloperAll = require('./routes/userDeveloperAll')
 
 require('dotenv').config();
 const SERVER_PORT = 8081
@@ -22,7 +21,6 @@ app.use('/user', getAllUsersRoute)
 app.use('/user', getUserByIdRoute)
 app.use('/user', editUser)
 app.use('/user', deleteUser)
-app.use('/developer', userDeveloperAll)
 
 
 app.listen(SERVER_PORT, (req, res) => {
