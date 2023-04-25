@@ -15,7 +15,7 @@ import AddCommentPage2 from "./components/pages/addCommentPage2";
 import Signup from "./components/pages/registerPage";
 import PrivateUserProfile from "./components/pages/privateUserProfilePage";
  
-import MbtaAlerts from "./components/pages/mbtaAlerts";
+import MbtaAlerts from "./components/pages/mbtaAlert";
  
 import TrainTrackerPage from "./components/pages/trainTrackerPage";
  
@@ -51,7 +51,7 @@ const App = () => {
           <Route exact path="/signup" element={<Signup />} />
           <Route path="/privateUserProfile" element={<PrivateUserProfile />} />
           <Route path="/trainTrackerPage" element={<TrainTrackerPage />} />
-          <Route exact path="/mbtaAlerts" element={<MbtaAlerts />} />
+          <Route exact path="/mbtaAlert" element={<MbtaAlerts />} />
           <Route exact path="/routePatterns" element={<RoutePatterns />} />
           <Route exact path="/addCommentPage2" element={<AddCommentPage2 />} />
           <Route exact path="/viewComments" element={<ViewCommentsPage />} />
