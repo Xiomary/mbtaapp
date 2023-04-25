@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import ReactNavbar from "react-bootstrap/Navbar";
 import "./pages/appNavBar.css";
-
+ 
 // Here, we display our Navbar
 export default function Navbar() {
   // We are pulling in the user's info but not using it for now.
@@ -14,7 +14,7 @@ export default function Navbar() {
   useEffect(() => {
     setUser(getUserInfo());
   }, []);
-
+ 
   // if (!user) return null   - for now, let's show the bar even not logged in.
   // we have an issue with getUserInfo() returning null after a few minutes
   // it seems.
@@ -27,6 +27,9 @@ export default function Navbar() {
           <Nav.Link href="/routePatterns">Stations</Nav.Link>
           <Nav.Link href="/mbtaAlerts">Next Train</Nav.Link>
           <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
+          <Nav.Link href="/addCommentPage2">Make Comment</Nav.Link>
+          <Nav.Link href="/viewComments">Comment List</Nav.Link>
+         
         </Nav>
       </Container>
     </ReactNavbar>

@@ -52,6 +52,37 @@ Content-Type: application/json
 POST  http://localhost:8081/user/deleteAll
 
 
+###
+POST http://localhost:8081/comment/add
+Content-Type: application/json
+ 
+{
+    "username": "allanbrock",
+    "stationName": "northstation",
+    "comment": "fantastic"
+}
+ 
+###
+GET http://localhost:8081/comment/getAll
+Content-Type: application/json
+ 
+{
+   
+}
+ 
+###
+POST http://localhost:8081/comment/editComment
+Content-Type: application/json
+ 
+{
+   "_id":"643e8daaa57ef1afb33ec1ca",
+    "username":"xio",
+    "comment":"hiiii",
+    "stationName":"bayline"
+}
+
+
+
 # GET  http://localhost:8081/comment/getUserById
 # Content-Type: application/json 
 
