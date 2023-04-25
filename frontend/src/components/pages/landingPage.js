@@ -26,7 +26,6 @@ const Landingpage = () => {
     color: bgColor,
   };
 
- 
 
   return (
     <div style={{display: 'flex',justifyContent:'center',alignItems:'center'}}>

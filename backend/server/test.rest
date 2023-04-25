@@ -51,3 +51,14 @@ Content-Type: application/json
 ###
 POST  http://localhost:8081/user/deleteAll
 
+
+# GET  http://localhost:8081/comment/getUserById
+# Content-Type: application/json 
+
+# {
+#     "-id" : "635ab8dfc407faf9f73deaf1",
+#     "username" : "manning",
+#     "station" : "salem",
+#     "comment" : "happy today"
+
+# }
