@@ -5,11 +5,11 @@ import Button from "react-bootstrap/Button";
 import "./landingPage.css";
 
 
-
 const PRIMARY_COLOR = "#cc5c99";
 const SECONDARY_COLOR = "#0c0c1f";
 
 const Landingpage = () => {
+  document.body.style='background:#cc5c99'
   const [light, setLight] = useState(false);
   const [bgColor, setBgColor] = useState(SECONDARY_COLOR);
   const [bgText, setBgText] = useState("Light Mode");

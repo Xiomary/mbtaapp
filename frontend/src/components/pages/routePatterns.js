@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import './routePatterns.css';
 
 function RoutePatterns() {
+  document.body.style='background:#cc5c99'
   const [routePatterns, setRoutePatterns] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
