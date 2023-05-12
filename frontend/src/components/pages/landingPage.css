@@ -1,5 +1,10 @@
-.stlye{
-display: flex;
-justify-content: center;
-align-items: center;
-}
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+   
+  .button-container button:first-child {
+    margin-right: 10px;
+  }
