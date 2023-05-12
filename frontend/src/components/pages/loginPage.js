@@ -17,18 +17,21 @@ const Login = () => {
   const [bgText, setBgText] = useState("Light Mode");
   const navigate = useNavigate();
 
+  //Styles
+
   let labelStyling = {
     color: PRIMARY_COLOR,
     fontWeight: "bold",
     textDecoration: "none",
   };
+  //Background Color
   let backgroundStyling = { background: bgColor };
   let buttonStyling = {
     background: PRIMARY_COLOR,
     borderStyle: "none",
     color: bgColor,
   };
-
+  
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
@@ -65,6 +68,8 @@ const Login = () => {
       }
     }
   };
+
+  // Redirect to home page if user is already logged in
 
   if (user) {
     navigate("/homePage");

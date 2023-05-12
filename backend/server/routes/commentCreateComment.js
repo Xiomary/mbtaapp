@@ -2,13 +2,12 @@ const express = require("express");
 const router = express.Router();
 const commentModel = require('../models/commentModel');
 
-
+// POST /comment/add
+// Add a new comment
 router.post('/add', async (req, res) => {
- 
-    const { username, stationName, comment } = req.body
+    const { username, stationName, comment } = req.body;
 
-
-     //creates a new comment
+    // Create a new comment using the commentModel
     const createComment = new commentModel({
         username: username,
         stationName: stationName,
@@ -16,14 +15,12 @@ router.post('/add', async (req, res) => {
     });
 
     try {
-        const saveComment = await createComment.save();
-        res.send(saveComment);
+        // Save the new comment to the database
+        const savedComment = await createComment.save();
+        res.send(savedComment);
     } catch (error) {
         res.status(400).send({ message: "Error trying to create comment" });
     }
-
-
-})
-
+});
 
 module.exports = router;

@@ -15,10 +15,12 @@ const Register = () => {
   const [bgColor, setBgColor] = useState(SECONDARY_COLOR);
   const [bgText, setBgText] = useState("Light Mode");
 
+    // Handle input change
+
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
-
+     // Toggle light/dark mode
   useEffect(() => {
     if (light) {
       setBgColor("white");
@@ -28,6 +30,7 @@ const Register = () => {
       setBgText("Light mode");
     }
   }, [light]);
+   // Styling variables
 
   let labelStyling = {
     color: PRIMARY_COLOR,
@@ -40,6 +43,8 @@ const Register = () => {
     borderStyle: "none",
     color: bgColor,
   };
+
+    // Handle form submission
 
   const handleSubmit = async (e) => {
     e.preventDefault();

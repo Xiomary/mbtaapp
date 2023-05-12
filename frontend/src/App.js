@@ -31,15 +31,14 @@ import { createContext, useState, useEffect } from "react";
 import getUserInfo from "./utilities/decodeJwt";
 
 export const UserContext = createContext();
-//test change
-//test again
+ 
 const App = () => {
   const [user, setUser] = useState();
 
   useEffect(() => {
     setUser(getUserInfo());
   }, []);
-
+    //Providing necessary components for navigation
   return (
     <>
       <Navbar />
@@ -55,7 +54,6 @@ const App = () => {
           <Route exact path="/routePatterns" element={<RoutePatterns />} />
           <Route exact path="/addCommentPage2" element={<AddCommentPage2 />} />
           <Route exact path="/viewComments" element={<ViewCommentsPage />} />
-          
 
         </Routes>
       </UserContext.Provider>

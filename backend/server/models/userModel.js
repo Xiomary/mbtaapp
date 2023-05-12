@@ -3,11 +3,13 @@ const mongoose = require("mongoose");
 //user schema/model
 const newUserSchema = new mongoose.Schema(
   {
+    //username of the user 
     username: {
       type: String,
       required: true,
       label: "username",
     },
+    //users email
     email: {
       type: String,
       required: true,
@@ -17,7 +19,8 @@ const newUserSchema = new mongoose.Schema(
       required: true,
       type: String,
       min : 8
-    },    
+    },   
+    //users fav route 
     favroute: {
       type: String,
       required: false,

@@ -8,48 +8,56 @@ import getUserInfo from "../../utilities/decodeJwt";
 const PrivateUserProfile = () => {
   const [show, setShow] = useState(false);
   const [user, setUser] = useState({});
-  
+
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const[oldEmail,setOldEmail] = useState("");
-  const[newEmail,setNewEmail] = useState("");
-  const[comfirmEmail,setComfirmedEmail] = useState("");
+  const [oldEmail, setOldEmail] = useState("");
+  const [newEmail, setNewEmail] = useState("");
+  const [comfirmEmail, setComfirmedEmail] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
 
-  // handle logout button
+  // Handle logout button click
   const handleLogout = () => {
     localStorage.clear();
     navigate("/");
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // handle password change logic here
+    // Add logic to handle password change request
     console.log("Old password:", oldPassword);
     console.log("New password:", newPassword);
     console.log("Confirm password:", confirmPassword);
   };
 
+  // Fetch user information on component mount
   useEffect(() => {
     setUser(getUserInfo());
   }, []);
 
-  if (!user) return <div><h4>Log in to view this page.</h4></div>;
+  // Render login prompt if user is not authenticated
+  if (!user)
+    return (
+      <div>
+        <h4>Log in to view this page.</h4>
+      </div>
+    );
 
   return (
     <div className="container">
       <div className="col-md-12 text-center">
         <h1>{user && user.username}</h1>
         <div className="d-flex flex-column align-items-center">
-          <Button style={{ marginBottom: "10px" }} onClick={ handleLogout}>
+          <Button style={{ marginBottom: "10px" }} onClick={handleLogout}>
             Log Out
           </Button>
-  
+
           <Button style={{ marginBottom: "10px" }} onClick={handleShow}>
             Change Password
           </Button>

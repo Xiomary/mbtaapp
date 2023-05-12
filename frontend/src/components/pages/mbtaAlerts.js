@@ -7,6 +7,7 @@ function Alerts() {
 
   useEffect(() => {
     async function fetchData() {
+      // Fetch alerts data from API
       const result = await axios(
         'https://api-v3.mbta.com/alerts?sort=banner&filter%5Bactivity%5D=BOARD%2CEXIT%2CRIDE',
       );
@@ -15,24 +16,43 @@ function Alerts() {
     fetchData();
   }, []);
 
+  const getBgColor = (id) => {
+    // Determine the background color and title based on the alert ID
+    switch(id % 4) {
+      case 0:
+        return {bg: "danger", title: "Red line"};
+      case 1:
+        return {bg: "warning", title: "Orange line"};
+      case 2:
+        return {bg: "primary", title: "Blue line"};
+      case 3:
+        return {bg: "success", title: "Green line"};
+      default:
+        return {bg: "info", title: "Unknown line"};
+    }
+  }
+
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
-      {alerts.map(alert => (
-        <Card
-          key={alert.id}
-          body
-          bg="info"
-          text="dark"
-          border="warning"
-          className="mx-1 my-2"
-          style={{ width: "30rem", margin: "auto" }}
-        >
-          <Card.Body>
-            <Card.Title>Trains</Card.Title>
-            <Card.Text>{alert.attributes.header} - {alert.attributes.description}</Card.Text>
-          </Card.Body>
-        </Card>
-      ))}
+      {alerts.map(alert => {
+        const bgColor = getBgColor(alert.id);
+        return (
+          <Card
+            key={alert.id}
+            body
+            bg={bgColor.bg}
+            text="dark"
+            border="warning"
+            className="mx-1 my-2"
+            style={{ width: "30rem", margin: "auto" }}
+          >
+            <Card.Body>
+              <Card.Title>{bgColor.title}</Card.Title>
+              <Card.Text>{alert.attributes.header} - {alert.attributes.description}</Card.Text>
+            </Card.Body>
+          </Card>
+        );
+      })}
     </div>
   );
 }

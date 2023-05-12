@@ -19,8 +19,8 @@
 .nav-link:hover::before {
   visibility: visible;
   transform: scaleX(1);
-  background: linear-gradient(to right, #cc5c99, #cc5c99 50%, #00c853 50%);
-  background-size: 400% 100%; /* modify the background size as needed */
+  background: linear-gradient(to right, #007bff, #007bff 50%, transparent 50%); /* Blue gradient */
+  background-size: 400% 100%; /* Modify the background size as needed */
   background-position: left bottom;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 2px 4px rgba(0, 123, 255, 0.4);

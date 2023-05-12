@@ -3,7 +3,6 @@ import { Form, Button } from "react-bootstrap";
 import "./addCommentPage2.css";
 
 const AddCommentPage2 = () => {
-  document.body.style = "background:#cc5c99";
   const [username, setUsername] = useState("");
   const [stationName, setStationName] = useState("");
   const [comment, setComment] = useState("");
