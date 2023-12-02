@@ -4,44 +4,22 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import getUserInfo from "../../utilities/decodeJwt";
+import axios from "axios"; // Import Axios for making HTTP requests
 
 const PrivateUserProfile = () => {
   const [show, setShow] = useState(false);
   const [user, setUser] = useState({});
-
-  const [oldPassword, setOldPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  const [oldEmail, setOldEmail] = useState("");
-  const [newEmail, setNewEmail] = useState("");
-  const [comfirmEmail, setComfirmedEmail] = useState("");
+  const [bio, setBio] = useState(""); // State variable for user bio
+  const [newBio, setNewBio] = useState(""); // State variable for updated bio
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
 
-  // Handle logout button click
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate("/");
-  };
-
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add logic to handle password change request
-    console.log("Old password:", oldPassword);
-    console.log("New password:", newPassword);
-    console.log("Confirm password:", confirmPassword);
-  };
-
-  // Fetch user information on component mount
   useEffect(() => {
     setUser(getUserInfo());
   }, []);
 
-  // Render login prompt if user is not authenticated
   if (!user)
     return (
       <div>
@@ -49,17 +27,33 @@ const PrivateUserProfile = () => {
       </div>
     );
 
+  const handleBioUpdate = async () => {
+    try {
+      const response = await axios.post("/api/updateBio", { bio: newBio }); // Send bio to the backend
+
+      if (response.status === 200) {
+        console.log("Bio updated successfully!");
+        setBio(newBio); // Update the local state with the new bio
+        handleClose();
+      } else {
+        console.error("Bio update failed");
+      }
+    } catch (error) {
+      console.error("Error updating bio:", error);
+    }
+  };
+
   return (
     <div className="container">
       <div className="col-md-12 text-center">
         <h1>{user && user.username}</h1>
+        <h2>{user.email}</h2>
+        <div>
+          <h3>Bio: {bio}</h3>
+        </div>
         <div className="d-flex flex-column align-items-center">
-          <Button style={{ marginBottom: "10px" }} onClick={handleLogout}>
-            Log Out
-          </Button>
-
           <Button style={{ marginBottom: "10px" }} onClick={handleShow}>
-            Change Password
+            Change Bio
           </Button>
         </div>
         <Modal
@@ -69,45 +63,27 @@ const PrivateUserProfile = () => {
           keyboard={false}
         >
           <Modal.Header closeButton>
-            <Modal.Title>Change Password</Modal.Title>
+            <Modal.Title>Change Bio</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="oldPassword">
-                <Form.Label>Old Password</Form.Label>
+            <Form>
+              <Form.Group controlId="newBio">
+                <Form.Label>New Bio</Form.Label>
                 <Form.Control
-                  type="password"
-                  value={oldPassword}
-                  onChange={(e) => setOldPassword(e.target.value)}
+                  as="textarea"
+                  rows={3}
+                  value={newBio}
+                  onChange={(e) => setNewBio(e.target.value)}
                 />
               </Form.Group>
-
-              <Form.Group controlId="newPassword">
-                <Form.Label>New Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                />
-              </Form.Group>
-
-              <Form.Group controlId="confirmPassword">
-                <Form.Label>Confirm Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-              </Form.Group>
-
-              <Button variant="primary" type="submit">
-                Change Password
-              </Button>
             </Form>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close
+            </Button>
+            <Button variant="primary" onClick={handleBioUpdate}>
+              Save Bio
             </Button>
           </Modal.Footer>
         </Modal>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import "./landingPage.css";
+import "./landingpage.css"
 
 const PRIMARY_COLOR = "#007bff"; // Blue color
 const SECONDARY_COLOR = "#0c0c1f";

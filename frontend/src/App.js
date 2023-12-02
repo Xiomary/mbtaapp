@@ -49,11 +49,9 @@ const App = () => {
           <Route exact path="/loginPage" element={<LoginPage />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route path="/privateUserProfile" element={<PrivateUserProfile />} />
-          <Route path="/trainTrackerPage" element={<TrainTrackerPage />} />
-          <Route exact path="/mbtaAlert" element={<MbtaAlerts />} />
-          <Route exact path="/routePatterns" element={<RoutePatterns />} />
-          <Route exact path="/addCommentPage2" element={<AddCommentPage2 />} />
-          <Route exact path="/viewComments" element={<ViewCommentsPage />} />
+        
+        
+         
 
         </Routes>
       </UserContext.Provider>

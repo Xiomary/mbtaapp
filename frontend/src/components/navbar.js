@@ -24,12 +24,7 @@ export default function Navbar() {
         <Nav className="me-auto">
           <Nav.Link href="/">Start</Nav.Link>
           <Nav.Link href="/homePage">Home</Nav.Link>
-          <Nav.Link href="/routePatterns">Stations</Nav.Link>
-          <Nav.Link href="/mbtaAlert">Next Train</Nav.Link>
           <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
-          <Nav.Link href="/addCommentPage2">Make Comment</Nav.Link>
-          <Nav.Link href="/viewComments">Comment List</Nav.Link>
-          
         </Nav>
       </Container>
     </ReactNavbar>
